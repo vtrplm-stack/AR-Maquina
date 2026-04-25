@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Máquina em Realidade Aumentada</title>
+<head>
+  <meta charset="UTF-8" />
+  <title>Máquina em Realidade Aumentada</title>
 
-    <!-- Model Viewer (Google) -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- Model Viewer -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 
-    <style>
-      body {
-        margin: 0;
-        background-color: #000;
-        overflow: hidden;
-      }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1f1f1f;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+    }
 
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: #1f1f1f;
+    }
 
-  <body>
-    <model-viewer
-      src="model.glb"
-      ar
-      ar-modes="scene-viewer webxr quick-look"
-      camera-controls
-      auto-rotate
-      shadow-intensity="1"
-      exposure="1"
-      alt="Modelo 3D da máquina em Realidade Aumentada">
-    </model-viewer>
-  </body>
+    .hint {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <model-viewer
+    src="model.glb"
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls
+    disable-zoom
+    shadow-intensity="0.6"
+    exposure="0.9"
+    tone-mapping="neutral"
+    environment-image="neutral"
+    interaction-prompt="none"
+  >
+  </model-viewer>
+
+  <div class="hint">
+    Toque em “Visualizar em AR”
+  </div>
+
+</body>
 </html>
-in
